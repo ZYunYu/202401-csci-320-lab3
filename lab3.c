@@ -7,11 +7,17 @@ extern int** sudoku_board;
 int* worker_validation;
 
 int** read_board_from_file(char* filename){
-    FILE *fp = NULL;
-    int** board = NULL;
+    FILE *fp = fopen(filename, "r");
 
-    // replace this comment with your code
-
+    int** board = malloc(sizeof(int*) * 9);
+    for(int i = 0; i < 9; i++){
+        board[i] = malloc(sizeof(int) * 9);
+        for (int j = 0; j < 9; j++){
+            board[i][j] = 0;
+        }
+    }
+    
+    fclose(fp);
     return board;
 }
 
